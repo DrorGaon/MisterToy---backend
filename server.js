@@ -1,3 +1,4 @@
+import path from 'path'
 import express from 'express'
 import cookieParser from 'cookie-parser'
 import { toyService } from './services/toy.service.js'
@@ -12,9 +13,8 @@ app.use(express.json())
 app.get('/api/toy', (req, res) => {
     
     const filterBy = {
-        text: req.query.text || '',
-        minSeverity: req.query.minSeverity || 0,
-        sortBy: req.query.sortBy || ''
+        name: req.query.name || '',
+        price: req.query.price || 0,
     }
 
     toyService.query(filterBy)
@@ -68,6 +68,10 @@ app.put('/api/toy/:toyId', (req, res) => {
             loggerService.error('Cannot update toy', err)
             res.status(400).send('Cannot update toy', err)
         })
+})
+
+app.get('/**', (req, res) => {
+    res.sendFile(path.resolve('public/index.html'))
 })
 
 const port = process.env.PORT || 3030

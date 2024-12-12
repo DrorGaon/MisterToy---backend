@@ -1,5 +1,4 @@
-{
-  "toys": [
+[
     {
       "name": "Action Figure",
       "price": 14,
@@ -106,4 +105,4 @@
       "_id": "Z7RnA"
     }
   ]
-}
+

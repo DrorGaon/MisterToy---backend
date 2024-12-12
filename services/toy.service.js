@@ -11,8 +11,16 @@ export const toyService = {
     save,
 }
 
-function query(){
-    return Promise.resolve(structuredClone(toys))
+function query( filterBy ){
+    let filteredToys = structuredClone(toys)
+    if(filterBy.name){
+        const regExp = new RegExp(filterBy.name, 'i')
+        filteredToys = filteredToys.filter(toy => regExp.test(toy.name))
+    }
+    if(filterBy.price){
+        filteredToys = filteredToys.filter(toy => toy.price >= filterBy.price)
+    }
+    return Promise.resolve(structuredClone(filteredToys))
 }
 
 function get(toyId){
