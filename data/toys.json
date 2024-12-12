@@ -1,107 +1,109 @@
-[
-  {
-    "name": "Action Figure",
-    "price": 14,
-    "inStock": true,
-    "labels": ["Action", "Classic"],
-    "_id": "a3X5B"
-  },
-  {
-    "name": "Building Blocks",
-    "price": 29,
-    "inStock": true,
-    "labels": ["Creative", "Educational"],
-    "_id": "Kz9Lp"
-  },
-  {
-    "name": "Doll House",
-    "price": 49,
-    "inStock": false,
-    "labels": ["Classic", "Creative"],
-    "_id": "4nRtX"
-  },
-  {
-    "name": "RC Car",
-    "price": 69,
-    "inStock": true,
-    "labels": ["Electronic", "Action"],
-    "_id": "W7yZv"
-  },
-  {
-    "name": "Puzzle Set",
-    "price": 19,
-    "inStock": true,
-    "labels": ["Educational", "Creative"],
-    "_id": "9qPjT"
-  },
-  {
-    "name": "Teddy Bear",
-    "price": 24,
-    "inStock": false,
-    "labels": ["Soft", "Classic"],
-    "_id": "Xy8kA"
-  },
-  {
-    "name": "Play Kitchen",
-    "price": 89,
-    "inStock": true,
-    "labels": ["Interactive", "Educational"],
-    "_id": "M2ZvT"
-  },
-  {
-    "name": "Science Kit",
-    "price": 39,
-    "inStock": true,
-    "labels": ["Educational", "Creative"],
-    "_id": "b7LwP"
-  },
-  {
-    "name": "Toy Train Set",
-    "price": 59,
-    "inStock": false,
-    "labels": ["Classic", "Interactive"],
-    "_id": "Q4RnY"
-  },
-  {
-    "name": "Stuffed Animal",
-    "price": 14,
-    "inStock": true,
-    "labels": ["Soft", "Interactive"],
-    "_id": "T9kXp"
-  },
-  {
-    "name": "Lego Set",
-    "price": 49,
-    "inStock": true,
-    "labels": ["Creative", "Action"],
-    "_id": "L6qZv"
-  },
-  {
-    "name": "Robot Dog",
-    "price": 89,
-    "inStock": false,
-    "labels": ["Electronic", "Interactive"],
-    "_id": "X8nTy"
-  },
-  {
-    "name": "Sports Ball",
-    "price": 19,
-    "inStock": true,
-    "labels": ["Outdoor", "Classic"],
-    "_id": "P5RkW"
-  },
-  {
-    "name": "Kite",
-    "price": 14,
-    "inStock": true,
-    "labels": ["Outdoor", "Creative"],
-    "_id": "Y2LpT"
-  },
-  {
-    "name": "Board Game",
-    "price": 29,
-    "inStock": true,
-    "labels": ["Interactive", "Educational"],
-    "_id": "Z7RnA"
-  }
-]
+{
+  "toys": [
+    {
+      "name": "Action Figure",
+      "price": 14,
+      "inStock": true,
+      "labels": ["Action", "Classic"],
+      "_id": "a3X5B"
+    },
+    {
+      "name": "Building Blocks",
+      "price": 29,
+      "inStock": true,
+      "labels": ["Creative", "Educational"],
+      "_id": "Kz9Lp"
+    },
+    {
+      "name": "Doll House",
+      "price": 49,
+      "inStock": false,
+      "labels": ["Classic", "Creative"],
+      "_id": "4nRtX"
+    },
+    {
+      "name": "RC Car",
+      "price": 69,
+      "inStock": true,
+      "labels": ["Electronic", "Action"],
+      "_id": "W7yZv"
+    },
+    {
+      "name": "Puzzle Set",
+      "price": 19,
+      "inStock": true,
+      "labels": ["Educational", "Creative"],
+      "_id": "9qPjT"
+    },
+    {
+      "name": "Teddy Bear",
+      "price": 24,
+      "inStock": false,
+      "labels": ["Soft", "Classic"],
+      "_id": "Xy8kA"
+    },
+    {
+      "name": "Play Kitchen",
+      "price": 89,
+      "inStock": true,
+      "labels": ["Interactive", "Educational"],
+      "_id": "M2ZvT"
+    },
+    {
+      "name": "Science Kit",
+      "price": 39,
+      "inStock": true,
+      "labels": ["Educational", "Creative"],
+      "_id": "b7LwP"
+    },
+    {
+      "name": "Toy Train Set",
+      "price": 59,
+      "inStock": false,
+      "labels": ["Classic", "Interactive"],
+      "_id": "Q4RnY"
+    },
+    {
+      "name": "Stuffed Animal",
+      "price": 14,
+      "inStock": true,
+      "labels": ["Soft", "Interactive"],
+      "_id": "T9kXp"
+    },
+    {
+      "name": "Lego Set",
+      "price": 49,
+      "inStock": true,
+      "labels": ["Creative", "Action"],
+      "_id": "L6qZv"
+    },
+    {
+      "name": "Robot Dog",
+      "price": 89,
+      "inStock": false,
+      "labels": ["Electronic", "Interactive"],
+      "_id": "X8nTy"
+    },
+    {
+      "name": "Sports Ball",
+      "price": 19,
+      "inStock": true,
+      "labels": ["Outdoor", "Classic"],
+      "_id": "P5RkW"
+    },
+    {
+      "name": "Kite",
+      "price": 14,
+      "inStock": true,
+      "labels": ["Outdoor", "Creative"],
+      "_id": "Y2LpT"
+    },
+    {
+      "name": "Board Game",
+      "price": 29,
+      "inStock": true,
+      "labels": ["Interactive", "Educational"],
+      "_id": "Z7RnA"
+    }
+  ]
+}

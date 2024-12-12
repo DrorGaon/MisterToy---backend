@@ -46,5 +46,29 @@ app.delete('/api/toy/:toyId', (req, res) => {
         })
 })
 
+app.post('/api/toy/', (req, res) => {
+
+    const toyToSave = req.body
+
+    toyService.save(toyToSave)
+        .then((toy) => res.send(toy))
+        .catch(err => {
+            loggerService.error(err)
+            res.status(500).send('Problem adding toy')
+        })
+})
+
+app.put('/api/toy/:toyId', (req, res) => {
+
+    const toyToSave = req.body
+
+    toyService.save(toyToSave)
+        .then(savedToy => res.send(savedToy))
+        .catch((err) => {
+            loggerService.error('Cannot update toy', err)
+            res.status(400).send('Cannot update toy', err)
+        })
+})
+
 const port = process.env.PORT || 3030
 app.listen(3030, () => loggerService.info(`Server listening on port http://127.0.0.1:${port}/`))

@@ -4,11 +4,15 @@ let toys
 utilService.readJSONFile('./data/toys.json')
     .then(data => toys = data)
 
-
 export const toyService = {
     query,
     get,
     remove,
+    save,
+}
+
+function query(){
+    return Promise.resolve(structuredClone(toys))
 }
 
 function get(toyId){
@@ -23,8 +27,25 @@ function remove(toyId){
     return _saveToFile().then(() => toys)
 }
 
-function query(){
-    return Promise.resolve(structuredClone(toys))
+function save(toyToSave){
+        
+    toyToSave = {
+        _id: toyToSave._id,
+        name: toyToSave.name,
+        price: toyToSave.price,
+        labels: toyToSave.labels,
+        inStock: toyToSave.inStock,
+    }
+
+    if(toyToSave._id){
+        const toyIdx = toys.findIndex(toy => toy._id === toyToSave._id)
+        toys.splice(toyIdx, 1, toyToSave)
+    } else {
+        toyToSave._id = utilService.makeId()
+        toys.unshift(toyToSave)
+    }
+
+    return _saveToFile().then(() => toyToSave)
 }
 
 function _saveToFile(){
