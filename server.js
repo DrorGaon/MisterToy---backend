@@ -25,5 +25,16 @@ app.get('/api/toy', (req, res) => {
         })
 })
 
+app.get('/api/toy/:toyId', (req, res) => {
+    const { toyId } = req.params
+
+    toyService.get(toyId)
+        .then((toy) => { res.send(toy) })
+        .catch(err => {
+            loggerService.error(err)
+            res.status(500).send('Problem getting toy')
+        })
+})
+
 const port = process.env.PORT || 3030
 app.listen(3030, () => loggerService.info(`Server listening on port http://127.0.0.1:${port}/`))
