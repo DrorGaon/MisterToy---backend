@@ -5,6 +5,7 @@ import cors from 'cors'
 
 import { toyService } from './services/toy.service.js'
 import { loggerService } from './services/logger.service.js'
+import { userService } from './services/user.service.js'
 
 const app = express()
 
@@ -85,6 +86,17 @@ app.put('/api/toy/:toyId', (req, res) => {
 
 app.get('/**', (req, res) => {
     res.sendFile(path.resolve('public/index.html'))
+})
+
+app.post('/api/auth/signup', (req, res) => {
+    const credentials = req.body
+
+    userService.save(credentials)
+        .then(user => {
+            res.cookie = ('loginToken', userService.getLoginToken(user))
+            res.send(user)
+        })
+        .catch(err => res.status(400).send('Cannot sign up', err))
 })
 
 const port = process.env.PORT || 3030

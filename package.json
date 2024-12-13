@@ -14,7 +14,7 @@
   "dependencies": {
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
-    "crypter": "^0.2.2",
+    "cryptr": "^6.3.0",
     "express": "^4.21.2"
   }
 }

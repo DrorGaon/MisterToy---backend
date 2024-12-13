@@ -1,46 +1,45 @@
 [
-    {
-        "_id": "oa5az",
-        "fullname": "bob",
-        "username": "bob",
-        "password": "bob",
-        "isAdmin": true 
-    },
-    {
-      "_id": "A1J9K",
-      "fullname": "Alice Johnson",
-      "username": "alicej",
-      "password": "password123"
-    },
-    {
-      "_id": "B2S8M",
-      "fullname": "Bob Smith",
-      "username": "bobsmith",
-      "password": "securepass456"
-    },
-    {
-      "_id": "C3B7N",
-      "fullname": "Charlie Brown",
-      "username": "charlieb",
-      "password": "mypassword789"
-    },
-    {
-      "_id": "D4P6R",
-      "fullname": "Diana Prince",
-      "username": "dianap",
-      "password": "wonderwoman"
-    },
-    {
-      "_id": "E5N5T",
-      "fullname": "Edward Norton",
-      "username": "edwardn",
-      "password": "fightclub321"
-    },
-    {
-      "_id": "F6A4P",
-      "fullname": "Fiona Apple",
-      "username": "fionaa",
-      "password": "passwordapple"
-    }
-  ]
-  
+  {
+    "_id": "oa5az",
+    "fullname": "bob",
+    "username": "bob",
+    "password": "bob",
+    "isAdmin": true
+  },
+  {
+    "_id": "A1J9K",
+    "fullname": "Alice Johnson",
+    "username": "alicej",
+    "password": "password123"
+  },
+  {
+    "_id": "B2S8M",
+    "fullname": "Bob Smith",
+    "username": "bobsmith",
+    "password": "securepass456"
+  },
+  {
+    "_id": "C3B7N",
+    "fullname": "Charlie Brown",
+    "username": "charlieb",
+    "password": "mypassword789"
+  },
+  {
+    "_id": "D4P6R",
+    "fullname": "Diana Prince",
+    "username": "dianap",
+    "password": "wonderwoman"
+  },
+  {
+    "_id": "E5N5T",
+    "fullname": "Edward Norton",
+    "username": "edwardn",
+    "password": "fightclub321"
+  },
+  {
+    "_id": "F6A4P",
+    "fullname": "Fiona Apple",
+    "username": "fionaa",
+    "password": "passwordapple"
+  }
+]
