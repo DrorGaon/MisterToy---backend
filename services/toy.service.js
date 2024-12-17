@@ -1,6 +1,7 @@
+import { loggerService } from "./logger.service.js"
 import { utilService } from "./util.service.js"
 
-let toys
+let toys 
 utilService.readJSONFile('./data/toys.json')
     .then(data => toys = data)
 
@@ -28,14 +29,20 @@ function get(toyId){
     return Promise.resolve(toy)
 }
 
-function remove(toyId){
+async function remove(toyId){
     const toyIdx = toys.findIndex(toy => toy._id === toyId)
     if(toyIdx < 0) return Promise.reject(`Cannot find toy with id ${toyId}`)
     toys.splice(toyIdx, 1)
-    return _saveToFile().then(() => toys)
+    try {
+        await _saveToFile()
+        return toys
+    } catch (err) {
+        loggerService.error('problem removing toy')
+        throw new Error('problem removing toy')
+    }
 }
 
-function save(toyToSave){
+async function save(toyToSave){
         
     toyToSave = {
         _id: toyToSave._id,
@@ -53,7 +60,13 @@ function save(toyToSave){
         toys.unshift(toyToSave)
     }
 
-    return _saveToFile().then(() => toyToSave)
+    try {
+        await _saveToFile()
+        return toyToSave
+    } catch (err) {
+        loggerService.error('problem saving toy')
+        throw new Error('problem saving toy')
+    }
 }
 
 function _saveToFile(){

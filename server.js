@@ -24,79 +24,89 @@ const corsOptions = {
 }
 app.use(cors(corsOptions))
 
-app.get('/api/toy', (req, res) => {
+app.get('/api/toy', async (req, res) => {
     
     const filterBy = {
         name: req.query.name || '',
         price: req.query.price || 0,
     }
 
-    toyService.query(filterBy)
-        .then((toys) => res.send(toys))
-        .catch(err => {
-            loggerService.error(err)
-            res.status(500).send('Problem getting toys')
-        })
+    try {
+        const toys = await toyService.query(filterBy)
+        res.send(toys)
+    } catch (err) {
+        loggerService.error(err)
+        res.status(500).send('Problem getting toys')
+    }
 })
 
-app.get('/api/toy/:toyId', (req, res) => {
+app.get('/api/toy/:toyId', async (req, res) => {
+    
     const { toyId } = req.params
 
-    toyService.get(toyId)
-        .then((toy) => { res.send(toy) })
-        .catch(err => {
-            loggerService.error(err)
-            res.status(500).send('Problem getting toy')
-        })
+    try {
+        const toy = await toyService.get(toyId)
+        res.send(toy)
+    } catch (err) {
+        loggerService.error(err)
+        res.status(500).send('Problem getting toy')
+    }
 })
 
-app.delete('/api/toy/:toyId', (req, res) => {
+app.delete('/api/toy/:toyId', async (req, res) => {
+
     const { toyId } = req.params
-    toyService.remove(toyId)
-        .then((toys) => res.send(toys))
-        .catch(err => {
-            loggerService.error(err)
-            res.status(500).send('Problem removing toy')
-        })
+
+    try {
+        const toys = await toyService.remove(toyId)
+        res.send(toys)
+    } catch (err) {
+        loggerService.error(err)
+        res.status(500).send('Problem removing toy')
+    }
 })
 
-app.post('/api/toy/', (req, res) => {
+app.post('/api/toy/', async (req, res) => {
 
     const toyToSave = req.body
 
-    toyService.save(toyToSave)
-        .then((toy) => res.send(toy))
-        .catch(err => {
-            loggerService.error(err)
-            res.status(500).send('Problem adding toy')
-        })
+    try {
+        const toy = await toyService.save(toyToSave)
+        res.send(toy)
+    } catch (err) {
+        loggerService.error(err)
+        res.status(500).send('Problem adding toy')
+    }
 })
 
-app.put('/api/toy/:toyId', (req, res) => {
-
+app.put('/api/toy/:toyId', async (req, res) => {
+    
     const toyToSave = req.body
 
-    toyService.save(toyToSave)
-        .then(savedToy => res.send(savedToy))
-        .catch((err) => {
-            loggerService.error('Cannot update toy', err)
-            res.status(400).send('Cannot update toy', err)
-        })
+    try {
+        const savedToy = await toyService.save(toyToSave)
+        res.send(savedToy)
+    } catch (err) {
+        loggerService.error('Cannot update toy', err)
+        res.status(400).send('Cannot update toy', err)
+    }
+})
+
+app.post('/api/auth/signup', async (req, res) => {
+    
+    const credentials = req.body
+
+    try {
+        const user = userService.save(credentials)
+        res.cookie = ('loginToken', userService.getLoginToken(user))
+        res.send(user)
+    } catch (err) {
+        res.status(400).send('Cannot sign up', err)
+    }
 })
 
 app.get('/**', (req, res) => {
     res.sendFile(path.resolve('public/index.html'))
-})
-
-app.post('/api/auth/signup', (req, res) => {
-    const credentials = req.body
-
-    userService.save(credentials)
-        .then(user => {
-            res.cookie = ('loginToken', userService.getLoginToken(user))
-            res.send(user)
-        })
-        .catch(err => res.status(400).send('Cannot sign up', err))
 })
 
 const port = process.env.PORT || 3030

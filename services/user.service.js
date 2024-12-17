@@ -12,7 +12,7 @@ export const userService = {
     getLoginToken
 }
 
-function save(user){
+async function save(user){
     const userToSave = {
         _id: user._id,
         fullname: user.fullname,
@@ -27,11 +27,16 @@ function save(user){
         users.unshift(userToSave)
     }
 
-    return _saveToFile()    
-        .then(() => ({
+    try {
+        await _saveToFile()
+        return {
             _id: userToSave._id,
             fullname: userToSave.fullname,
-        }))
+        }
+    } catch (err) {
+        loggerService.error('problem signing up')
+        throw new Error('problem signing up')
+    }
 }
 
 function getLoginToken(user) {
